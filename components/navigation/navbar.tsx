@@ -68,8 +68,8 @@ export function Navbar() {
         </button>
       </nav>
 
-      <div ref={menuRef} id="mobile-navigation" popover="auto" onToggle={(event) => { if (event.target === event.currentTarget) setMenuOpen(event.newState === "open"); }} className="fixed right-auto bottom-auto m-0 overflow-hidden rounded-none border border-line/50 bg-surface/95 p-0 text-foreground shadow-[0_12px_24px_rgba(47,38,33,0.08)] backdrop-blur-xl [&:popover-open]:flex [&:popover-open]:flex-col">
-        <nav aria-label="Navigation mobile" className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-2 md:px-6">
+      <div ref={menuRef} id="mobile-navigation" data-lenis-prevent popover="auto" onToggle={(event) => { if (event.target === event.currentTarget) setMenuOpen(event.newState === "open"); }} className="fixed right-auto bottom-auto m-0 overflow-y-auto overscroll-contain rounded-none border border-line/50 bg-surface/95 p-0 text-foreground shadow-[0_12px_24px_rgba(47,38,33,0.08)] backdrop-blur-xl [&:popover-open]:block">
+        <nav aria-label="Navigation mobile" className="px-4 py-2 md:px-6">
           <Link href="/" onClick={closeMenu} aria-current={isHome ? "page" : undefined} className="flex min-h-16 items-center border-b border-line text-xl">Accueil</Link>
           <details open={pathname.startsWith("/prestations")} className="group border-b border-line">
             <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between text-xl [&::-webkit-details-marker]:hidden">Nos soins <span aria-hidden="true" className="inline-flex size-6 shrink-0 items-center justify-center text-xl leading-none transition-transform duration-200 group-open:rotate-45 motion-reduce:transition-none">+</span></summary>
