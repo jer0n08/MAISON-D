@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "legal-page-generator": {
+      "source": "kostja94/marketing-skills",
+      "sourceType": "github",
+      "skillPath": "skills/pages/legal/legal/SKILL.md",
+      "computedHash": "4c7383e1d375600e1b5eba42e1c2a600f5391013038faa5630d302273e29f6ad"
+    },
+    "privacy-page-generator": {
+      "source": "kostja94/marketing-skills",
+      "sourceType": "github",
+      "skillPath": "skills/pages/legal/privacy/SKILL.md",
+      "computedHash": "3bada1f83ce5260c044986d082dbc01455021d21b1af14817490153baf6d82c3"
+    }
+  }
+}

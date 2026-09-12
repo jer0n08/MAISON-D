@@ -11,7 +11,7 @@ export function PlanityWidget() {
   if (!planityApiKey) {
     return (
       <section className="container-regular py-12 md:py-16">
-        <div className="rounded-xl border border-line bg-surface px-6 py-5 text-[#584a41]">
+        <div className="rounded-none border border-line bg-surface px-6 py-5 text-[#584a41]">
           <p className="text-base leading-7 md:text-[1.05rem]">
             Module Planity pret a l&apos;emploi. Ajoutez `NEXT_PUBLIC_PLANITY_API_KEY` dans votre fichier `.env.local`
             pour activer l&apos;affichage du widget ici.

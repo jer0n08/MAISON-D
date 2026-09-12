@@ -80,7 +80,7 @@ export default function PrestationsPage() {
                 href="https://www.planity.com/maison-d-78100-saint-germain-en-laye-dsr"
                 target="_blank"
                 rel="noreferrer"
-                className="mt-7 inline-block rounded-md bg-primary px-5 py-3 text-base text-white transition hover:bg-primary-dark md:text-[1.05rem]"
+                className="mt-7 inline-block rounded-none bg-primary px-5 py-3 text-base text-white transition hover:bg-primary-dark md:text-[1.05rem]"
               >
                 Prendre rendez-vous
               </Link>

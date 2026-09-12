@@ -3,47 +3,48 @@ import Image from "next/image";
 export function GiftCta() {
   return (
     <section className="w-full bg-surface py-12 md:py-16">
-      <div className="container-regular rounded-2xl px-6 py-10 md:px-10">
+      <div className="container-regular py-6 md:py-10">
         <div className="grid items-center gap-8 md:grid-cols-2 md:gap-10">
-          <div className="mx-auto w-full max-w-[380px] rotate-[-1.6deg] rounded-2xl border border-[#d7c9bc] bg-[linear-gradient(140deg,#fffaf5_0%,#f2e1cf_100%)] p-0 text-left shadow-[0_16px_32px_rgba(95,69,47,0.16)]">
-            <div className="relative h-[205px] overflow-hidden rounded-2xl px-5 py-4 md:h-auto md:aspect-[1.586] md:px-6 md:py-5">
-              <div className="absolute -left-10 -top-10 size-28 rounded-full bg-white/35" aria-hidden="true" />
-              <div className="absolute -bottom-12 right-10 size-32 rounded-full bg-[#e4cdb8]/55" aria-hidden="true" />
-
-              <div className="relative flex h-full flex-col justify-between">
-                <div className="flex items-start">
-                  <Image
-                    src="/images/brand/maison-d.svg"
-                    alt="Maison D."
-                    width={164}
-                    height={29}
-                    className="w-[164px]"
-                  />
+          <div className="relative isolate mx-auto w-full max-w-[460px] px-3 py-6 sm:px-5">
+            <div aria-hidden="true" className="absolute inset-x-6 inset-y-5 -z-10 translate-y-3 rotate-[-5deg] border border-primary-dark/20 bg-primary/25" />
+            <div className="relative overflow-hidden border border-line bg-background p-3 shadow-[0_20px_45px_-20px_rgba(47,38,33,0.3)] sm:p-4">
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent_30%,rgba(255,255,255,0.7)_50%,transparent_70%)]" />
+              <div className="relative flex min-h-[250px] flex-col items-center justify-between border border-primary/50 px-4 py-6 text-center sm:min-h-[280px] sm:px-6">
+                <Image
+                  src="/images/brand/maison-d-monogramme.svg"
+                  alt="Maison D."
+                  width={130}
+                  height={60}
+                  className="h-auto w-28 sm:w-32"
+                />
+                <div className="my-5">
+                  <p className="text-3xl leading-tight text-foreground sm:text-4xl" style={{ fontFamily: '"DidotLTRomanWeb", serif' }}>Carte cadeau</p>
+                  <p className="mt-3 text-sm leading-6 text-foreground/75">Un moment rien que pour vous.</p>
                 </div>
-
-                <div>
-                  <h4 className="text-[1.5rem] leading-none text-[#2f241b] md:text-[1.8rem]">Carte cadeau</h4>
-                  <p className="mt-2.5 max-w-[24ch] text-sm leading-5 text-[#6a5a4d] md:mt-3">Offrez une parenthèse de beauté et de bien-être.</p>
+                <div className="flex w-full items-center gap-3" aria-hidden="true">
+                  <span className="h-px flex-1 bg-primary/50" />
+                  <span className="size-1.5 rotate-45 bg-primary" />
+                  <span className="h-px flex-1 bg-primary/50" />
                 </div>
               </div>
             </div>
           </div>
 
           <div className="text-center md:text-left">
-            <h3 className="text-4xl text-[#2f241b] md:text-5xl">Le cadeau idéal pour prendre soin de soi</h3>
+            <h2 className="text-3xl leading-tight text-balance text-[#2f241b] md:text-4xl">Le cadeau idéal pour prendre soin de soi</h2>
             <Image
               src="/images/ui/separator.svg"
-              alt="Séparateur"
+              alt=""
               width={222}
               height={15}
-              className="mx-auto mt-3"
+              className="mx-auto mt-3 md:ml-0"
             />
             <p className="mt-4 text-base leading-7 text-[#5d4f45] md:text-[1.05rem]">
-              Faites plaisir vos proches avec nos cartes cadeaux valables sur toutes nos prestations.
+              Faites plaisir à vos proches avec nos cartes cadeaux valables sur toutes nos prestations.
             </p>
             <a
               href="#contact"
-              className="mt-6 inline-block rounded-md bg-primary px-6 py-3 text-base text-white transition hover:bg-primary-dark md:text-[1.05rem]"
+              className="mt-6 inline-block rounded-none bg-primary px-6 py-3 text-base text-white transition hover:bg-primary-dark md:text-[1.05rem]"
             >
               Offrez un bon cadeau
             </a>

@@ -1,10 +1,10 @@
 [
   {
-    "id": "impeccable-offre-printemps-kobido-offert",
-    "title": "Offre spéciale printemps - Kobido japonais offert",
-    "category": "l'impeccable",
-    "duration": "2 h 30",
-    "price": 90
+    "id": "offre-duo-beauty",
+    "title": "Offre Duo Beauty - Massage / Pose de vernis / Soin visage / Pause gourmande / Photo / Remise de 10%",
+    "category": "offre du moment",
+    "duration": "3 h",
+    "price": 250
   },
   {
     "id": "impeccable-vernis-classique",
@@ -50,24 +50,24 @@
   },
   {
     "id": "manucure-russe-gainage-gel",
-    "title": "Manucure russe avec gainage gel et vernis semi-permanent",
+    "title": "Manucure russe avec gainage gel sur ongles naturels et vernis semi-permanent",
     "category": "onglerie mains",
     "duration": "1 h 15",
     "price": 60
   },
   {
     "id": "manucure-russe-rallongement-gel",
-    "title": "Manucure russe + rallongement ongles avec gel + vernis semi-permanent",
+    "title": "Manucure russe avec rallongement au gel et vernis semi-permanent",
     "category": "onglerie mains",
-    "duration": "2 h",
+    "duration": "1 h 15",
     "price": 68
   },
   {
     "id": "manucure-russe-rallongement-dip-powder",
-    "title": "Manucure russe - rallongement Dip Powder et vernis semi-permanent",
+    "title": "Manucure russe avec rallongement à la Dip Powder et vernis semi-permanent",
     "category": "onglerie mains",
-    "duration": "2 h",
-    "price": 65
+    "duration": "1 h 15",
+    "price": 68
   },
   {
     "id": "option-french-babyboomer-nailart-mains",
@@ -119,6 +119,13 @@
     "price": 15
   },
   {
+    "id": "massage-des-pieds",
+    "title": "Massage des pieds",
+    "category": "onglerie pieds",
+    "duration": "10 min",
+    "price": 10
+  },
+  {
     "id": "epilation-fil-zone",
     "title": "Fil - sourcils, lèvres ou menton",
     "category": "épilation",
@@ -148,10 +155,66 @@
   },
   {
     "id": "epilation-impeccable",
-    "title": "Cire - L'Impeccable (aisselles + maillot + jambes entières)",
+    "title": "Cire - L'Impeccable (aisselles + maillot au choix + jambes entières)",
     "category": "épilation",
-    "duration": "45 min",
+    "duration": "1 h",
     "price": 60
+  },
+  {
+    "id": "epilation-cire-aisselles",
+    "title": "Cire - aisselles",
+    "category": "épilation",
+    "duration": "10 min",
+    "price": 10
+  },
+  {
+    "id": "epilation-cire-avant-bras",
+    "title": "Cire - avant-bras",
+    "category": "épilation",
+    "duration": "15 min",
+    "price": 15
+  },
+  {
+    "id": "epilation-cire-bras",
+    "title": "Cire - bras",
+    "category": "épilation",
+    "duration": "20 min",
+    "price": 20
+  },
+  {
+    "id": "epilation-cire-maillot-classique",
+    "title": "Cire - maillot classique",
+    "category": "épilation",
+    "duration": "30 min",
+    "price": 20
+  },
+  {
+    "id": "epilation-cire-maillot-bresilien",
+    "title": "Cire - maillot brésilien ou échancré",
+    "category": "épilation",
+    "duration": "30 min",
+    "price": 23
+  },
+  {
+    "id": "epilation-cire-maillot-integral",
+    "title": "Cire - maillot intégral et interfessier",
+    "category": "épilation",
+    "duration": "30 min",
+    "price": 27
+  },
+  {
+    "id": "epilation-cire-demi-jambes",
+    "title": "Cire - demi-jambes ou cuisses",
+    "category": "épilation",
+    "duration": "20 min",
+    "price": 17
+  },
+  {
+    "id": "epilation-cire-jambes-entieres",
+    "title": "Cire - jambes entières",
+    "category": "épilation",
+    "duration": "30 min",
+    "price": 28
   },
   {
     "id": "kobido-express",
@@ -169,7 +232,7 @@
   },
   {
     "id": "vague-de-lumiere",
-    "title": "Soin visage - Vague de lumière by Greenspa",
+    "title": "Soin visage - Vague de lumière by Greenspa - Coup d'éclat",
     "category": "visage",
     "duration": "30 min",
     "price": 80
@@ -197,17 +260,87 @@
   },
   {
     "id": "drainage-lymphatique-signature-1h",
-    "title": "Massage amincissant - drainage lymphatique signature (1 heure)",
+    "title": "Massage amincissant - drainage lymphatique signature",
     "category": "massages",
     "duration": "1 h",
     "price": 109
   },
   {
     "id": "le-parfait-kobido-drainage",
-    "title": "Le Parfait - soin visage et massage Kobido japonais et drainage lymphatique",
+    "title": "Offre spéciale - Le Parfait - Kobido japonais et drainage lymphatique",
     "category": "massages",
-    "duration": "1 h 30",
+    "duration": "2 h",
     "price": 189
+  },
+  {
+    "id": "palper-rouler-express",
+    "title": "Massage anti-cellulite - palper-rouler express",
+    "category": "massages",
+    "duration": "30 min",
+    "price": 65
+  },
+  {
+    "id": "maderotherapie-express",
+    "title": "Massage anti-cellulite - madérothérapie express",
+    "category": "massages",
+    "duration": "30 min",
+    "price": 65
+  },
+  {
+    "id": "maderotherapie-1h",
+    "title": "Massage anti-cellulite - madérothérapie",
+    "category": "massages",
+    "duration": "1 h",
+    "price": 109
+  },
+  {
+    "id": "massage-relaxant-express",
+    "title": "Massage relaxant - sur mesure express",
+    "category": "massages",
+    "duration": "30 min",
+    "price": 65
+  },
+  {
+    "id": "massage-relaxant-1h",
+    "title": "Massage relaxant - sur mesure",
+    "category": "massages",
+    "duration": "1 h",
+    "price": 90
+  },
+  {
+    "id": "massage-relaxant-2h",
+    "title": "Massage relaxant - sur mesure",
+    "category": "massages",
+    "duration": "2 h",
+    "price": 150
+  },
+  {
+    "id": "massage-deep-tissue-1h",
+    "title": "Massage profond - Deep Tissue",
+    "category": "massages",
+    "duration": "1 h",
+    "price": 90
+  },
+  {
+    "id": "massage-deep-tissue-2h",
+    "title": "Massage profond - Deep Tissue",
+    "category": "massages",
+    "duration": "2 h",
+    "price": 150
+  },
+  {
+    "id": "massage-future-maman-1h",
+    "title": "Massage future maman",
+    "category": "massages",
+    "duration": "1 h",
+    "price": 90
+  },
+  {
+    "id": "massage-future-maman-2h",
+    "title": "Massage future maman",
+    "category": "massages",
+    "duration": "2 h",
+    "price": 150
   },
   {
     "id": "blanchiment-premiere-seance",

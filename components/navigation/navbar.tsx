@@ -1,307 +1,90 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ArrowUpRight, ChevronRight, Menu, Phone, X } from "lucide-react";
 
-const navLinks = [
-  { label: "Accueil", href: "/" },
-  { label: "Prestations", href: "/prestations" },
-  { label: "Contact", href: "/contact" },
-];
+import { ServicesDropdown } from "@/components/navigation/services-dropdown";
+import { PLANITY_URL, SERVICE_CATEGORIES } from "@/data/service-categories";
 
 export function Navbar() {
   const pathname = usePathname();
-  const headerRef = useRef<HTMLElement>(null);
-  const mobilePanelRef = useRef<HTMLDivElement>(null);
-  const mobilePanelBgRef = useRef<HTMLButtonElement>(null);
-  const mobilePanelContentRef = useRef<HTMLDivElement>(null);
-  const mobileCtaRef = useRef<HTMLAnchorElement>(null);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isHomePath = pathname === "/" || pathname === "/index" || pathname === "/index.html";
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const isHome = pathname === "/" || pathname === "/index" || pathname === "/index.html";
 
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 8);
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsMenuOpen(false);
-      }
-    };
-
-    window.addEventListener("keydown", onKeyDown);
-
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
-
-  useEffect(() => {
-    const onResize = () => {
-      if (window.innerWidth >= 768) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    window.addEventListener("resize", onResize);
-
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-
-  const isHomeTop = isHomePath && !isScrolled && !isMenuOpen;
-  const isActiveLink = (href: string) => {
-    if (href === "/") {
-      return pathname === "/" || pathname === "/index" || pathname === "/index.html";
+  const alignMenu = () => {
+    const bounds = navRef.current?.getBoundingClientRect();
+    const menu = menuRef.current;
+    if (bounds && menu) {
+      menu.style.left = `${bounds.left}px`;
+      menu.style.top = `${bounds.bottom - 1}px`;
+      menu.style.width = `${bounds.width}px`;
+      menu.style.maxHeight = `${Math.max(0, window.innerHeight - bounds.bottom - 8)}px`;
     }
-
-    return pathname === href || pathname.startsWith(`${href}/`);
   };
-
-  useGSAP(
-    () => {
-      if (!isHomePath) {
-        return;
-      }
-
-      gsap.fromTo(
-        headerRef.current,
-        { y: -34, autoAlpha: 0 },
-        {
-          y: 0,
-          autoAlpha: 1,
-          delay: 2.2,
-          duration: 0.95,
-          ease: "power4.out",
-          clearProps: "transform",
-        },
-      );
-    },
-    { scope: headerRef, dependencies: [isHomePath] },
-  );
-
-  useGSAP(
-    () => {
-      const panel = mobilePanelRef.current;
-      const bg = mobilePanelBgRef.current;
-      const content = mobilePanelContentRef.current;
-      const cta = mobileCtaRef.current;
-
-      if (!panel || !bg || !content || !cta) {
-        return;
-      }
-
-      const links = gsap.utils.toArray<HTMLAnchorElement>("[data-mobile-link]", panel);
-
-      gsap.killTweensOf([bg, content, cta, ...links]);
-
-      if (isMenuOpen) {
-        gsap.set(panel, { pointerEvents: "auto" });
-
-        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-        tl.fromTo(bg, { scaleY: 0, autoAlpha: 0, transformOrigin: "top center" }, { scaleY: 1, autoAlpha: 1, duration: 0.65 })
-          .fromTo(content, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.35 }, "<+0.22")
-          .fromTo(
-            links,
-            { y: 22, autoAlpha: 0 },
-            { y: 0, autoAlpha: 1, duration: 0.55, stagger: 0.1, ease: "power4.out" },
-            "<+0.08",
-          )
-          .fromTo(cta, { y: 18, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.5, ease: "power4.out" }, "<+0.1");
-
-        return;
-      }
-
-      const closeTl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
-      closeTl
-        .to([cta, ...links], { y: 10, autoAlpha: 0, duration: 0.2, stagger: 0.04 })
-        .to(content, { autoAlpha: 0, duration: 0.18 }, "<")
-        .to(bg, { scaleY: 0, autoAlpha: 0, transformOrigin: "top center", duration: 0.35 }, "<+0.04")
-        .set(panel, { pointerEvents: "none" });
-    },
-    { scope: headerRef, dependencies: [isMenuOpen] },
-  );
+  const closeMenu = () => menuRef.current?.hidePopover();
 
   useEffect(() => {
-    const panel = mobilePanelRef.current;
-    const bg = mobilePanelBgRef.current;
-    const content = mobilePanelContentRef.current;
-    const cta = mobileCtaRef.current;
+    const menu = menuRef.current;
+    const onResize = () => {
+      if (window.innerWidth >= 1024) menu?.hidePopover();
+      else if (menu?.matches(":popover-open")) alignMenu();
+    };
+    const onScroll = () => menu?.hidePopover();
+    window.addEventListener("resize", onResize);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("scroll", onScroll);
+      menu?.hidePopover();
+    };
+  }, [pathname]);
 
-    if (!panel || !bg || !content || !cta) {
-      return;
-    }
-
-    const links = gsap.utils.toArray<HTMLAnchorElement>("[data-mobile-link]", panel);
-
-    gsap.set(panel, { pointerEvents: "none" });
-    gsap.set(bg, { scaleY: 0, autoAlpha: 0, transformOrigin: "top center" });
-    gsap.set(content, { autoAlpha: 0 });
-    gsap.set([...links, cta], { y: 18, autoAlpha: 0 });
-  }, []);
+  const navClass = "inline-flex min-h-11 items-center border-b text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-4";
+  const bookingClass = "inline-flex min-h-11 items-center justify-center gap-2 rounded-none bg-foreground px-5 py-3 text-sm text-white transition-colors hover:bg-primary-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground";
 
   return (
-    <header ref={headerRef} className={`${isHomePath ? "fixed" : "sticky"} top-0 z-[80] w-full`}>
-      <nav
-        className={`relative z-[90] w-full transition-[background-color,backdrop-filter,box-shadow] duration-300 ${
-          isHomeTop ? "bg-transparent backdrop-blur-0" : "bg-surface/90 backdrop-blur"
-        }`}
-      >
-        <div className="container-regular relative z-[100] flex items-center justify-between gap-6 py-6 md:py-6">
-          <Link href="/" className="shrink-0">
-            <Image
-              src={isHomeTop ? "/images/brand/maison-d-white.svg" : "/images/brand/maison-d.svg"}
-              alt="Maison D."
-              width={186}
-              height={68}
-              style={{ height: "auto" }}
-              className="w-[172px] transition duration-300 md:w-[196px]"
-              priority
-            />
-          </Link>
-
-          <ul
-            className={`hidden items-center gap-8 text-base md:text-[1.05rem] md:flex ${
-              isHomeTop ? "text-white" : "text-foreground"
-            }`}
-          >
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  className={`transition ${
-                    isActiveLink(link.href)
-                      ? isHomeTop
-                        ? "text-white"
-                        : "text-primary-dark"
-                      : isHomeTop
-                        ? "hover:text-white/75"
-                        : "hover:text-primary-dark"
-                  }`}
-                  href={link.href}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          <button
-            type="button"
-            aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-nav-panel"
-            onClick={() => setIsMenuOpen((prev) => !prev)}
-            className={`z-[110] inline-flex size-11 items-center justify-center transition md:hidden ${
-              isMenuOpen ? "text-foreground" : isHomeTop ? "text-white" : "text-foreground"
-            }`}
-          >
-            <span className="relative block h-4 w-5">
-              <span
-                className={`absolute left-0 top-0 h-[2px] w-6 origin-center transition ${
-                  isMenuOpen ? "translate-y-[7px] rotate-45" : "rotate-0"
-                } ${isHomeTop ? "bg-white" : "bg-current"}`}
-              />
-              <span
-                className={`absolute left-0 top-[7px] h-[2px] w-6 transition ${
-                  isMenuOpen ? "opacity-0" : "opacity-100"
-                } ${isHomeTop ? "bg-white" : "bg-current"}`}
-              />
-              <span
-                className={`absolute left-0 top-[14px] h-[2px] w-6 origin-center transition ${
-                  isMenuOpen ? "-translate-y-[7px] -rotate-45" : "rotate-0"
-                } ${isHomeTop ? "bg-white" : "bg-current"}`}
-              />
-            </span>
-          </button>
-
-          <Link
-            href="https://www.planity.com/maison-d-78100-saint-germain-en-laye-dsr"
-            target="_blank"
-            rel="noreferrer"
-            className="hidden rounded-md bg-primary px-4 py-2 text-base text-white transition hover:bg-primary-dark md:inline-block md:text-[1.05rem]"
-          >
-            Prendre rendez-vous
-          </Link>
+    <header className={`${isHome ? "fixed" : "sticky"} top-0 z-[80] w-full py-2 lg:py-4`}>
+      <nav ref={navRef} aria-label="Navigation principale" className="container-regular relative flex h-16 items-center justify-between gap-4 lg:grid lg:grid-cols-[1fr_auto_1fr] rounded-none border border-line/50 bg-surface/95 px-4 lg:border-white/60 lg:bg-surface/85 text-foreground shadow-[0_4px_24px_rgba(47,38,33,0.04)] backdrop-blur-xl md:px-6 lg:h-[76px]">
+        <Link href="/" aria-label="Maison D. — Accueil" className="shrink-0 rounded-none lg:col-start-2 lg:row-start-1 lg:justify-self-center focus-visible:outline-2 focus-visible:outline-offset-4">
+          <Image src="/images/brand/maison-d.svg" alt="Maison D." width={196} height={68} priority className="h-auto w-[148px] sm:w-40 lg:w-44" />
+        </Link>
+        <ul className="col-start-1 row-start-1 hidden items-center gap-7 lg:flex">
+          <li><Link href="/" aria-current={isHome ? "page" : undefined} className={`${navClass} ${isHome ? "border-foreground text-foreground" : "border-transparent text-foreground/75 hover:border-primary"}`}>Accueil</Link></li>
+          <li><ServicesDropdown key={pathname} /></li>
+        </ul>
+        <div className="col-start-3 row-start-1 hidden items-center justify-end gap-6 lg:flex">
+          <Link href="/contact" aria-current={pathname === "/contact" ? "page" : undefined} className={`${navClass} hidden lg:inline-flex ${pathname === "/contact" ? "border-foreground" : "border-transparent text-foreground/75 hover:border-primary"}`}>Contact</Link>
+          <a href={PLANITY_URL} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-1 rounded-none text-xs text-foreground underline underline-offset-4 transition-colors hover:text-primary-dark focus-visible:outline-2 focus-visible:outline-offset-4 sm:gap-2 sm:text-sm">
+            Réserver <ArrowUpRight aria-hidden="true" className="hidden size-4 sm:block" />
+          </a>
         </div>
+        <button type="button" aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} popoverTarget="mobile-navigation" onClick={alignMenu} className="ml-auto inline-flex size-11 shrink-0 items-center justify-end rounded-none text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 lg:hidden">
+          {menuOpen ? <X aria-hidden="true" className="size-5" /> : <Menu aria-hidden="true" className="size-5" />}
+        </button>
       </nav>
 
-      <div
-        id="mobile-nav-panel"
-        ref={mobilePanelRef}
-        className="fixed inset-0 z-[70] md:hidden"
-        aria-hidden={!isMenuOpen}
-      >
-        <button
-          type="button"
-          aria-label="Fermer le menu"
-          ref={mobilePanelBgRef}
-          className="absolute inset-0 bg-[linear-gradient(180deg,#fdfaf6_0%,#f2e3d3_100%)]"
-          onClick={() => setIsMenuOpen(false)}
-        />
-        <div ref={mobilePanelContentRef} className="relative h-full w-full overflow-y-auto px-3 pt-[calc(env(safe-area-inset-top)+8.75rem)] pb-[max(1.5rem,env(safe-area-inset-bottom))]">
-          <div className="flex min-h-full w-full flex-col items-start text-left">
-            <ul className="w-full space-y-8 text-4xl leading-[1.05] text-foreground">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    data-mobile-link="true"
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block border-b border-line/70 pb-4 transition-colors hover:text-primary-dark ${
-                      isActiveLink(link.href) ? "text-primary-dark" : ""
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
+      <div ref={menuRef} id="mobile-navigation" popover="auto" onToggle={(event) => { if (event.target === event.currentTarget) setMenuOpen(event.newState === "open"); }} className="fixed right-auto bottom-auto m-0 overflow-hidden rounded-none border border-line/50 bg-surface/95 p-0 text-foreground shadow-[0_12px_24px_rgba(47,38,33,0.08)] backdrop-blur-xl [&:popover-open]:flex [&:popover-open]:flex-col">
+        <nav aria-label="Navigation mobile" className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-2 md:px-6">
+          <Link href="/" onClick={closeMenu} aria-current={isHome ? "page" : undefined} className="flex min-h-16 items-center border-b border-line text-xl">Accueil</Link>
+          <details open={pathname.startsWith("/prestations")} className="group border-b border-line">
+            <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between text-xl [&::-webkit-details-marker]:hidden">Nos soins <span aria-hidden="true" className="inline-flex size-6 shrink-0 items-center justify-center text-xl leading-none transition-transform duration-200 group-open:rotate-45 motion-reduce:transition-none">+</span></summary>
+            <ul className="mb-4 space-y-2">
+              {SERVICE_CATEGORIES.map((category) => (
+                <li key={category.slug}><Link href={`/prestations/${category.slug}`} onClick={closeMenu} aria-current={pathname === `/prestations/${category.slug}` ? "page" : undefined} className={`flex min-h-12 items-center justify-between gap-3 rounded-none px-3 py-3 text-base transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 ${pathname === `/prestations/${category.slug}` ? "bg-primary/15 text-foreground" : "bg-background/70 text-foreground/80 hover:bg-primary/10 hover:text-foreground"}`}><span>{category.label}</span><ChevronRight aria-hidden="true" className="size-4 shrink-0 text-primary-dark" /></Link></li>
               ))}
+              <li><Link href="/prestations" onClick={closeMenu} className="mt-2 flex min-h-11 items-center px-3 text-sm underline underline-offset-4">Toutes les prestations et tarifs</Link></li>
             </ul>
-            <Link
-              href="https://www.planity.com/maison-d-78100-saint-germain-en-laye-dsr"
-              target="_blank"
-              rel="noreferrer"
-              ref={mobileCtaRef}
-              onClick={() => setIsMenuOpen(false)}
-              className="mt-10 block w-full rounded-md bg-primary px-6 py-3 text-center text-lg text-white transition-colors hover:bg-primary-dark"
-            >
-              Prendre rendez-vous
-            </Link>
-
-            <div className="mt-auto flex w-full items-center justify-center gap-5 pt-10 pb-2">
-              <a
-                href="https://www.instagram.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram"
-                className="inline-flex size-11 items-center justify-center rounded-full border border-line/80 text-foreground transition-colors hover:text-primary-dark"
-              >
-                <svg viewBox="0 0 24 24" className="size-5" fill="currentColor" aria-hidden="true">
-                  <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Z" />
-                </svg>
-              </a>
-
-              <a
-                href="https://www.facebook.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Facebook"
-                className="inline-flex size-11 items-center justify-center rounded-full border border-line/80 text-foreground transition-colors hover:text-primary-dark"
-              >
-                <svg viewBox="0 0 24 24" className="size-5" fill="currentColor" aria-hidden="true">
-                  <path d="M13.48 21.5v-8.18h2.75l.41-3.19h-3.16V8.08c0-.93.26-1.56 1.58-1.56h1.69V3.66a22.31 22.31 0 0 0-2.46-.13c-2.44 0-4.1 1.49-4.1 4.23v2.36H7.44v3.19h2.75v8.18h3.29Z" />
-                </svg>
-              </a>
-            </div>
-          </div>
+          </details>
+          <Link href="/contact" onClick={closeMenu} className="flex min-h-16 items-center text-xl">Contact</Link>
+        </nav>
+        <div className="shrink-0 bg-surface px-6 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
+          <a href={PLANITY_URL} target="_blank" rel="noreferrer" onClick={closeMenu} className={`${bookingClass} w-full`}>Prendre rendez-vous <ArrowUpRight aria-hidden="true" className="size-4" /></a>
+          <a href="tel:+33670152569" className="mt-2 flex min-h-11 items-center justify-center gap-2 text-sm"><Phone aria-hidden="true" className="size-4" />06 70 15 25 69</a>
         </div>
       </div>
     </header>

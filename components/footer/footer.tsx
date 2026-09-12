@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Clock3, MapPin, Phone } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
+
+import { SERVICE_CATEGORIES } from "@/data/service-categories";
 
 export function Footer() {
   return (
@@ -16,8 +18,30 @@ export function Footer() {
           />
         </div>
 
+        <nav aria-label="Prestations en pied de page" className="mt-8 border-y border-line py-7 md:py-8">
+          <h2 className="text-xl leading-tight text-foreground md:text-2xl">Nos prestations</h2>
+          <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-1 md:grid-cols-4">
+            {SERVICE_CATEGORIES.map((category) => (
+              <li key={category.slug}>
+                <Link
+                  href={`/prestations/${category.slug}`}
+                  className="inline-flex min-h-11 items-center rounded-none py-2 text-base leading-6 text-foreground/80 transition-colors hover:text-foreground hover:underline focus-visible:outline-2 focus-visible:outline-offset-4"
+                >
+                  {category.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link href="/prestations" className="inline-flex min-h-11 items-center rounded-none py-2 text-base leading-6 text-foreground underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4">
+                Tous les soins et tarifs
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
         <div className="mt-8 grid gap-8 md:grid-cols-3 md:gap-6">
-          <div className="space-y-3 text-base text-[#584a41] md:text-[1.05rem]">
+          <div className="space-y-3 text-base leading-6 text-[#584a41]">
+            <h2 className="text-xl leading-tight text-foreground md:text-2xl">Notre adresse</h2>
             <p className="flex items-center gap-2">
               <MapPin className="size-5 shrink-0 text-primary-dark" aria-hidden="true" />
               <a
@@ -37,7 +61,8 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="space-y-3 text-base text-[#584a41] md:text-[1.05rem] md:text-center">
+          <div className="space-y-3 text-base leading-6 text-[#584a41] md:text-center">
+            <h2 className="text-xl leading-tight text-foreground md:text-2xl">Nos réseaux</h2>
             <a
               href="https://www.instagram.com"
               target="_blank"
@@ -62,11 +87,8 @@ export function Footer() {
             </a>
           </div>
 
-          <div className="space-y-2 text-base text-[#584a41] md:text-[1.05rem]">
-            <p className="flex items-center gap-2">
-              <Clock3 className="size-5 shrink-0 text-primary-dark" aria-hidden="true" />
-              <span>Horaires</span>
-            </p>
+          <div className="space-y-3 text-base leading-6 text-[#584a41]">
+            <h2 className="text-xl leading-tight text-foreground md:text-2xl">Nos horaires</h2>
             <p>Lundi - Samedi: 10h - 20h</p>
             <p>Dimanche: 10h - 18h</p>
           </div>

@@ -50,7 +50,7 @@ export function ImmersiveBanner() {
       <div className="absolute inset-0 bg-black/20" />
 
       <div className="container-regular relative z-10 flex min-h-[700px] items-center justify-center py-10">
-        <article className="mx-auto w-full max-w-xl border rounded-xl  border-white/40 bg-white/80 px-8 py-8 text-center backdrop-blur-[2px] md:px-12">
+        <article className="mx-auto w-full max-w-xl border rounded-none  border-white/40 bg-white/80 px-8 py-8 text-center backdrop-blur-[2px] md:px-12">
           <Image
             src="/images/ui/badge.svg"
             alt="Badge Maison D"
@@ -58,12 +58,11 @@ export function ImmersiveBanner() {
             height={50}
             className="mx-auto"
           />
-          <p className="mt-3 text-sm tracking-[0.24em] text-[#8a7667] uppercase">L&apos;IMPECCABLE</p>
-          <h3 className="mt-1 text-5xl leading-tight text-[#2f241b]">Beauté des mains et des pieds</h3>
+          <h2 className="mt-3 text-3xl leading-tight text-balance text-[#2f241b] md:text-4xl">Beauté des mains et des pieds</h2>
           <p className="mt-3 text-base leading-7 text-[#5d4f45] md:text-[1.05rem]">
             Des rituels esthétiques précis pour sublimer vos mains et vos pieds avec une finition élégante.
           </p>
-          <button className="mt-5 rounded-md bg-primary px-5 py-2 text-base text-white transition hover:bg-primary-dark md:text-[1.05rem]">Réserver une séance</button>
+          <button className="mt-5 rounded-none bg-primary px-5 py-2 text-base text-white transition hover:bg-primary-dark md:text-[1.05rem]">Réserver une séance</button>
         </article>
       </div>
     </section>

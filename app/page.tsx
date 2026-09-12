@@ -25,6 +25,25 @@ export default function Home() {
       <main className="pb-8">
         <Hero />
         <Reveal>
+          <section id="institut" aria-labelledby="institut-title" className="container-regular py-14 md:py-20">
+            <div className="mx-auto max-w-2xl text-center">
+              <h2 id="institut-title" className="text-3xl leading-tight text-balance text-foreground md:text-4xl">
+                Une maison pour prendre soin de vous
+              </h2>
+              <div className="mt-6 space-y-4 text-base leading-7 text-foreground/80">
+                <p>
+                  Au cœur de Saint-Germain-en-Laye, Maison D. réunit soins de beauté et petits plaisirs du quotidien.
+                  Une manucure, un massage, un soin du visage… puis le temps de savourer une boisson au coffee shop.
+                </p>
+                <p>
+                  Pensé pour les femmes comme pour les hommes, l’institut vous accueille dans une atmosphère chaleureuse,
+                  avec un espace enfants et des expériences à partager à deux.
+                </p>
+              </div>
+            </div>
+          </section>
+        </Reveal>
+        <Reveal>
           <ServicesGrid />
         </Reveal>
         <Reveal>

@@ -1,124 +1,79 @@
-"use client";
+import Link from "next/link";
+import { ChevronDown } from "lucide-react";
 
-import { useMemo, useState } from "react";
+import { ServicePrices } from "@/components/prestations/service-prices";
 import prestationsData from "@/data/prestations.json";
+import { SERVICE_CATEGORIES } from "@/data/service-categories";
 
-const CATEGORIES = [
-  "tous",
-  "l'impeccable",
-  "onglerie mains",
-  "onglerie pieds",
-  "massages",
-  "visage",
-  "épilation",
-  "blanchiment dentaire",
-] as const;
-
-type Category = (typeof CATEGORIES)[number];
-
-type Prestation = {
-  id: string;
-  title: string;
-  category: Exclude<Category, "tous">;
-  duration: string;
-  price: number;
-};
-
-const prestations = prestationsData as Prestation[];
-
-const CATEGORY_ORDER: Record<Exclude<Category, "tous">, number> = {
-  "l'impeccable": 0,
-  "onglerie mains": 1,
-  "onglerie pieds": 2,
-  massages: 3,
-  visage: 4,
-  "épilation": 5,
-  "blanchiment dentaire": 6,
-};
-
-function formatCategoryLabel(category: Category) {
-  if (category === "l'impeccable") {
-    return "L'Impeccable";
-  }
-
-  return category
-    .split(" ")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-}
+const priceFormatter = new Intl.NumberFormat("fr-FR", {
+  style: "currency",
+  currency: "EUR",
+  maximumFractionDigits: 0,
+});
 
 export function PrestationsList() {
-  const [selectedCategory, setSelectedCategory] = useState<Category>("tous");
-
-  const filteredPrestations = useMemo(() => {
-    if (selectedCategory === "tous") {
-      return prestations.toSorted(
-        (a, b) =>
-          CATEGORY_ORDER[a.category] - CATEGORY_ORDER[b.category] ||
-          a.price - b.price ||
-          a.title.localeCompare(b.title, "fr"),
-      );
-    }
-
-    return prestations
-      .filter((prestation) => prestation.category === selectedCategory)
-      .toSorted((a, b) => a.price - b.price || a.title.localeCompare(b.title, "fr"));
-  }, [selectedCategory]);
+  const offers = prestationsData.filter((service) => service.category === "offre du moment");
 
   return (
-    <section className="container-regular py-14 md:py-20" aria-labelledby="prestations-filtres-title">
+    <section className="container-regular py-14 md:py-20" aria-labelledby="carte-soins-title">
       <div className="mx-auto max-w-3xl text-center">
-        <h2 id="prestations-filtres-title" className="text-4xl text-[#2a2018] md:text-5xl">
-          Filtrer les prestations
-        </h2>
-        <p className="mt-4 text-base text-[#635448] md:text-[1.05rem]">
-          Choisissez une catégorie pour afficher les soins disponibles.
+        <h2 id="carte-soins-title" className="text-4xl text-foreground md:text-5xl">La carte des soins</h2>
+        <p className="mt-4 text-base leading-7 text-primary-dark">
+          Ouvrez un univers pour découvrir ses soins, leurs durées et leurs tarifs.
         </p>
       </div>
 
-      <div className="mt-8 flex flex-wrap justify-center gap-2 md:gap-3">
-        {CATEGORIES.map((category) => {
-          const isActive = selectedCategory === category;
-
-          return (
-            <button
-              key={category}
-              type="button"
-              onClick={() => setSelectedCategory(category)}
-              className={`rounded-md border px-4 py-2 text-sm tracking-[0.14em] transition md:px-5 md:py-2.5 md:text-sm ${
-                isActive
-                  ? "border-primary bg-primary text-white"
-                  : "border-line bg-surface text-[#5f5248] hover:border-primary hover:text-primary-dark"
-              }`}
-            >
-              {formatCategoryLabel(category)}
-            </button>
-          );
-        })}
+      <div className="mt-10 space-y-4 md:mt-12">
+        {offers.map((offer) => (
+          <article key={offer.id} className="rounded-none border border-line bg-surface p-6 md:p-8">
+            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+              <h3 className="text-xl leading-tight text-balance text-foreground md:text-2xl">
+                {offer.id === "offre-duo-beauty" ? "Duo Beauty" : offer.title}
+              </h3>
+              <p className="text-lg tabular-nums text-foreground">
+                {priceFormatter.format(offer.price)} <span className="text-sm text-primary-dark">· {offer.duration}</span>
+              </p>
+            </div>
+            {offer.id === "offre-duo-beauty" && (
+              <p className="mt-3 max-w-2xl text-base leading-7 text-primary-dark">
+                Massage, pose de vernis ou soin visage, pause gourmande et photo souvenir :
+                une parenthèse à deux, avec une remise de 10 % sur un prochain rendez-vous pris le jour même.
+              </p>
+            )}
+          </article>
+        ))}
       </div>
 
-      <div className="mt-10 w-full border-t border-line">
-        {filteredPrestations.length === 0 ? (
-          <p className="py-8 text-center text-[#635448]">Aucune prestation pour cette catégorie.</p>
-        ) : (
-          filteredPrestations.map((prestation) => (
-            <article
-              key={prestation.id}
-              className="flex flex-col gap-2 border-b border-line py-5 md:flex-row md:items-center md:justify-between"
-            >
-              <h3 className="text-2xl text-[#2f241b] md:text-3xl">{prestation.title}</h3>
-              <p className="text-base text-[#635448] md:text-[1.05rem]">
-                {prestation.duration} -{" "}
-                <span
-                  style={{ fontFamily: '"DidotLTRomanWeb", var(--font-didot-roman), serif' }}
-                  className="text-xl text-[#2f241b] md:text-2xl"
+      <div className="mt-6 space-y-3">
+        {SERVICE_CATEGORIES.map((category, index) => {
+          const services = prestationsData.filter((service) => service.category === category.key);
+          if (services.length === 0) return null;
+
+          return (
+            <details key={category.key} open={index === 0} className="group rounded-none border border-line bg-surface">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-none p-5 transition-colors hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground md:p-7 [&::-webkit-details-marker]:hidden">
+                <div>
+                  <h3 className="text-xl leading-tight text-balance text-foreground md:text-2xl">{category.label}</h3>
+                  <p className="mt-1.5 text-sm leading-6 text-primary-dark">
+                    {category.description} <span className="whitespace-nowrap">· {services.length} prestations</span>
+                  </p>
+                </div>
+                <ChevronDown aria-hidden="true" className="size-5 shrink-0 text-primary-dark transition-transform duration-200 group-open:rotate-180 motion-reduce:transition-none" />
+              </summary>
+              <div className="px-5 pb-6 md:px-7 md:pb-7">
+                <div className="border-t border-line pt-5 md:pt-6">
+                  <ServicePrices services={services} />
+                </div>
+                <Link
+                  href={`/prestations/${category.slug}`}
+                  className="mt-6 inline-flex min-h-11 items-center text-sm text-foreground underline underline-offset-4 hover:text-primary-dark focus-visible:outline-2 focus-visible:outline-offset-4"
                 >
-                  {prestation.price}€
-                </span>
-              </p>
-            </article>
-          ))
-        )}
+                  Découvrir {category.label.toLocaleLowerCase("fr")}
+                </Link>
+              </div>
+            </details>
+          );
+        })}
       </div>
     </section>
   );

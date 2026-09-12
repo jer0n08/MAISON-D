@@ -63,13 +63,13 @@ export function Hero() {
                 href="https://www.planity.com/maison-d-78100-saint-germain-en-laye-dsr"
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-md bg-primary px-5 py-3 text-base text-white transition hover:bg-primary-dark md:text-[1.05rem]"
+                className="rounded-none bg-primary px-5 py-3 text-base text-white transition hover:bg-primary-dark md:text-[1.05rem]"
               >
                 Prendre rendez-vous
               </a>
               <a
                 href="#prestations"
-                className="rounded-md border border-white/60 px-5 py-3 text-base text-white transition hover:bg-white/10 md:text-[1.05rem]"
+                className="rounded-none border border-white/60 px-5 py-3 text-base text-white transition hover:bg-white/10 md:text-[1.05rem]"
               >
                 Découvrir nos prestations
               </a>

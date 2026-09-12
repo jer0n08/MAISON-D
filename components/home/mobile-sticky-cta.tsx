@@ -64,7 +64,7 @@ export function MobileStickyCta() {
         href="https://www.planity.com/maison-d-78100-saint-germain-en-laye-dsr"
         target="_blank"
         rel="noreferrer"
-        className="block w-full rounded-md bg-primary px-6 py-3 text-center text-base text-white transition-colors hover:bg-primary-dark"
+        className="block w-full rounded-none bg-primary px-6 py-3 text-center text-base text-white transition-colors hover:bg-primary-dark"
       >
         Prendre rendez-vous
       </a>
