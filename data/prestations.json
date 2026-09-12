@@ -1,0 +1,226 @@
+[
+  {
+    "id": "impeccable-offre-printemps-kobido-offert",
+    "title": "Offre spéciale printemps - Kobido japonais offert",
+    "category": "l'impeccable",
+    "duration": "2 h 30",
+    "price": 90
+  },
+  {
+    "id": "impeccable-vernis-classique",
+    "title": "Manucure russe, beauté des mains et pieds avec vernis classique",
+    "category": "l'impeccable",
+    "duration": "1 h 30",
+    "price": 80
+  },
+  {
+    "id": "impeccable-vernis-semi-permanent",
+    "title": "Manucure russe, beauté des mains et pieds avec vernis semi-permanent",
+    "category": "l'impeccable",
+    "duration": "2 h",
+    "price": 90
+  },
+  {
+    "id": "depose-vernis-mains",
+    "title": "Dépose de vernis",
+    "category": "onglerie mains",
+    "duration": "45 min",
+    "price": 15
+  },
+  {
+    "id": "manucure-russe-sans-vernis",
+    "title": "Manucure russe - sans vernis",
+    "category": "onglerie mains",
+    "duration": "30 min",
+    "price": 25
+  },
+  {
+    "id": "manucure-russe-vernis-manucurist",
+    "title": "Manucure russe - avec vernis manucurist",
+    "category": "onglerie mains",
+    "duration": "45 min",
+    "price": 30
+  },
+  {
+    "id": "manucure-russe-semi-permanent",
+    "title": "Manucure russe avec vernis semi-permanent",
+    "category": "onglerie mains",
+    "duration": "1 h",
+    "price": 35
+  },
+  {
+    "id": "manucure-russe-gainage-gel",
+    "title": "Manucure russe avec gainage gel et vernis semi-permanent",
+    "category": "onglerie mains",
+    "duration": "1 h 15",
+    "price": 60
+  },
+  {
+    "id": "manucure-russe-rallongement-gel",
+    "title": "Manucure russe + rallongement ongles avec gel + vernis semi-permanent",
+    "category": "onglerie mains",
+    "duration": "2 h",
+    "price": 68
+  },
+  {
+    "id": "manucure-russe-rallongement-dip-powder",
+    "title": "Manucure russe - rallongement Dip Powder et vernis semi-permanent",
+    "category": "onglerie mains",
+    "duration": "2 h",
+    "price": 65
+  },
+  {
+    "id": "option-french-babyboomer-nailart-mains",
+    "title": "Option french, baby boomer, nail art",
+    "category": "onglerie mains",
+    "duration": "30 min",
+    "price": 15
+  },
+  {
+    "id": "massage-des-mains",
+    "title": "Massage des mains",
+    "category": "onglerie mains",
+    "duration": "10 min",
+    "price": 10
+  },
+  {
+    "id": "depose-vernis-pieds",
+    "title": "Dépose de vernis",
+    "category": "onglerie pieds",
+    "duration": "45 min",
+    "price": 15
+  },
+  {
+    "id": "beaute-pieds-sans-vernis",
+    "title": "Beauté des pieds sans vernis",
+    "category": "onglerie pieds",
+    "duration": "30 min",
+    "price": 35
+  },
+  {
+    "id": "beaute-pieds-vernis-manucurist",
+    "title": "Beauté des pieds avec vernis manucurist",
+    "category": "onglerie pieds",
+    "duration": "45 min",
+    "price": 40
+  },
+  {
+    "id": "beaute-pieds-semi-permanent",
+    "title": "Beauté des pieds avec vernis semi-permanent",
+    "category": "onglerie pieds",
+    "duration": "1 h",
+    "price": 50
+  },
+  {
+    "id": "option-french-babyboomer-nailart",
+    "title": "Option french, baby boomer, nail art",
+    "category": "onglerie pieds",
+    "duration": "30 min",
+    "price": 15
+  },
+  {
+    "id": "epilation-fil-zone",
+    "title": "Fil - sourcils, lèvres ou menton",
+    "category": "épilation",
+    "duration": "15 min",
+    "price": 7
+  },
+  {
+    "id": "epilation-fil-visage-complet",
+    "title": "Fil - visage complet",
+    "category": "épilation",
+    "duration": "20 min",
+    "price": 20
+  },
+  {
+    "id": "epilation-cire-zone",
+    "title": "Cire - sourcils, lèvres ou menton",
+    "category": "épilation",
+    "duration": "15 min",
+    "price": 7
+  },
+  {
+    "id": "epilation-cire-visage-complet",
+    "title": "Cire - visage complet",
+    "category": "épilation",
+    "duration": "20 min",
+    "price": 30
+  },
+  {
+    "id": "epilation-impeccable",
+    "title": "Cire - L'Impeccable (aisselles + maillot + jambes entières)",
+    "category": "épilation",
+    "duration": "45 min",
+    "price": 60
+  },
+  {
+    "id": "kobido-express",
+    "title": "Soin visage - Kobido japonais express",
+    "category": "visage",
+    "duration": "30 min",
+    "price": 65
+  },
+  {
+    "id": "kobido-anti-age",
+    "title": "Soin visage - Kobido japonais anti-âge",
+    "category": "visage",
+    "duration": "1 h",
+    "price": 88
+  },
+  {
+    "id": "vague-de-lumiere",
+    "title": "Soin visage - Vague de lumière by Greenspa",
+    "category": "visage",
+    "duration": "30 min",
+    "price": 80
+  },
+  {
+    "id": "or-marin-anti-age",
+    "title": "Soin visage - L'Or Marin anti-âge",
+    "category": "visage",
+    "duration": "1 h 30",
+    "price": 119
+  },
+  {
+    "id": "drainage-lymphatique-express",
+    "title": "Massage amincissant - drainage lymphatique express",
+    "category": "massages",
+    "duration": "30 min",
+    "price": 65
+  },
+  {
+    "id": "drainage-lymphatique-renata-franca",
+    "title": "Massage amincissant - drainage lymphatique Renata França",
+    "category": "massages",
+    "duration": "1 h",
+    "price": 109
+  },
+  {
+    "id": "drainage-lymphatique-signature-1h",
+    "title": "Massage amincissant - drainage lymphatique signature (1 heure)",
+    "category": "massages",
+    "duration": "1 h",
+    "price": 109
+  },
+  {
+    "id": "le-parfait-kobido-drainage",
+    "title": "Le Parfait - soin visage et massage Kobido japonais et drainage lymphatique",
+    "category": "massages",
+    "duration": "1 h 30",
+    "price": 189
+  },
+  {
+    "id": "blanchiment-premiere-seance",
+    "title": "Première séance",
+    "category": "blanchiment dentaire",
+    "duration": "45 min",
+    "price": 100
+  },
+  {
+    "id": "blanchiment-deuxieme-seance",
+    "title": "Deuxième séance",
+    "category": "blanchiment dentaire",
+    "duration": "45 min",
+    "price": 50
+  }
+]

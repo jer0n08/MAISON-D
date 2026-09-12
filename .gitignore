@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local export archive and downloaded installer
+/out.zip
+/public/images/home/OBS-Studio-32.1.2-Windows-x64-Installer.exe

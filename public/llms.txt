@@ -1,0 +1,31 @@
+# Maison D.
+
+Site officiel de Maison D., institut de beaute et onglerie a Saint-Germain-en-Laye.
+
+## URL principale
+- https://www.maisond-institut.fr
+
+## Pages importantes
+- /
+- /prestations
+- /contact
+
+## Services
+- Onglerie mains
+- Onglerie pieds
+- Soins visage
+- Massages
+- Epilation
+
+## Coordonnees
+- Adresse: 6 PLACE ABBE PIERRE DE PORCARO, 78100 SAINT-GERMAIN-EN-LAYE, France
+- Telephone: +33 6 70 15 25 69
+- Email: contact@maisond-institut.fr
+
+## Reseaux sociaux
+- https://www.instagram.com
+- https://www.facebook.com
+
+## Notes
+- Les informations legales sont disponibles sur /mentions-legales.
+- Pour une reservation, utilisez la page /prestations.
