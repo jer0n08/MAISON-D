@@ -8,7 +8,7 @@ import { Footer } from "@/components/footer/footer";
 import { Navbar } from "@/components/navigation/navbar";
 import { ServicePrices } from "@/components/prestations/service-prices";
 import prestationsData from "@/data/prestations.json";
-import { PLANITY_URL, SERVICE_CATEGORIES } from "@/data/service-categories";
+import { SERVICE_CATEGORIES } from "@/data/service-categories";
 
 type Props = Readonly<{ params: Promise<{ slug: string }> }>;
 
@@ -82,7 +82,7 @@ export default async function ServicePage({ params }: Props) {
   return (
     <>
       <Navbar />
-      <main className="pb-16 md:pb-0">
+      <main className="inner-page">
         <div className="container-regular">
           <nav aria-label="Fil d’Ariane" className="py-5 text-sm text-primary-dark">
             <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
@@ -94,9 +94,9 @@ export default async function ServicePage({ params }: Props) {
             </ol>
           </nav>
 
-          <section aria-labelledby="service-title" className="overflow-hidden rounded-none border border-line bg-surface">
+          <section aria-labelledby="service-title" className="service-intro overflow-hidden rounded-xl bg-[#efe2d6]">
             <div className="grid md:grid-cols-2">
-              <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[480px]">
+              <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[380px]">
                 <Image
                   src={category.image}
                   alt={`${category.label} chez Maison D.`}
@@ -113,10 +113,8 @@ export default async function ServicePage({ params }: Props) {
                 <p className="mt-5 text-base leading-7 text-foreground/80">{category.introduction}</p>
                 <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
                   <a
-                    href={PLANITY_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex min-h-12 items-center justify-center rounded-none bg-foreground px-5 py-3 text-sm text-white transition-colors hover:bg-primary-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
+                    href="/reservation"
+                    className="reference-button"
                   >
                     Prendre rendez-vous
                   </a>
@@ -128,21 +126,19 @@ export default async function ServicePage({ params }: Props) {
             </div>
           </section>
 
-          <section id="tarifs" aria-label="Soins et tarifs" className="scroll-mt-32 py-14 md:py-20">
+          <section id="tarifs" aria-label="Soins et tarifs" className="scroll-mt-32 py-10 md:py-12">
             <div className="grid items-start gap-8 lg:grid-cols-[1fr_2fr] lg:gap-14">
               <div>
-                <p className="text-base leading-7 text-foreground/80">{category.detail}</p>
+                <h2 className="mb-4 text-3xl">{category.detailTitle}</h2><p className="text-base leading-7 text-foreground/80">{category.detail}</p>
                 <Link href="/contact" className="mt-5 inline-flex min-h-11 items-center text-sm text-foreground underline underline-offset-4">
                   Une question ? Contactez-nous
                 </Link>
               </div>
-              <div className="rounded-none border border-line bg-surface p-5 md:p-8">
+              <div className="rounded-xl border border-line bg-surface p-5 md:p-8">
                 <ServicePrices services={services} />
                 <a
-                  href={PLANITY_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-8 inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-none bg-foreground px-4 py-3 text-center text-sm text-white transition-colors hover:bg-primary-dark"
+                  href="/reservation"
+                  className="reference-button mt-6 w-full"
                 >
                   Voir les disponibilités sur Planity <ArrowRight aria-hidden="true" className="size-4 shrink-0" />
                 </a>
@@ -157,7 +153,7 @@ export default async function ServicePage({ params }: Props) {
                 <Link
                   key={item.slug}
                   href={`/prestations/${item.slug}`}
-                  className="flex items-center justify-between gap-3 rounded-none border border-line bg-surface p-5 text-foreground transition-colors hover:border-primary-dark focus-visible:outline-2 focus-visible:outline-offset-4"
+                  className="flex items-center justify-between gap-3 rounded-xl border border-line bg-surface p-5 text-foreground transition-colors hover:border-primary-dark focus-visible:outline-2 focus-visible:outline-offset-4"
                 >
                   {item.label}<ArrowRight aria-hidden="true" className="size-4 shrink-0" />
                 </Link>

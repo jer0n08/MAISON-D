@@ -1,0 +1,32 @@
+[
+  {
+    "name": "salon",
+    "prompt": "Landscape 4:3 editorial interior photograph of an intimate French beauty and wellness salon lounge. A linen armchair beside a small travertine table with a closed book, aged oak flooring, soft limewash cream walls, daylight from a side window, glimpse of a sheer curtain. Eye level from doorway, asymmetrical composition, not a reception counter. No people.",
+    "path": "C:\\Users\\jerom\\.codex\\generated_images\\01a0aac0-26a2-7170-ba9e-633fe957fe96\\exec-4a53815c-d60a-44cb-bbc9-8639cc78c145.png"
+  },
+  {
+    "name": "ube",
+    "prompt": "Portrait 3:4 still life editorial food photograph: a single iced pale lavender ube latte in a clear ribbed glass on a small warm oak cafe table, a crumpled natural linen napkin, tiny spoon, natural condensation. Close angle, sharp glass and tactile table, soft cream wall background. No matcha, no hands.",
+    "path": "C:\\Users\\jerom\\.codex\\generated_images\\01a0aac0-26a2-7170-ba9e-633fe957fe96\\exec-744a3206-1e2b-4b57-860e-e657fffd008e.png"
+  },
+  {
+    "name": "jeux",
+    "prompt": "Portrait 3:4 editorial detail photograph of well-used wooden building blocks and a small illustrated closed picture book without legible text on a low cream children's table. Warm small French family cafe interior, natural daylight, small child-size chair partly visible. Tight tactile crop, no teddy bear, no people.",
+    "path": "C:\\Users\\jerom\\.codex\\generated_images\\01a0aac0-26a2-7170-ba9e-633fe957fe96\\exec-0a850d97-41ef-40b7-bee9-04bfce9ead9a.png"
+  },
+  {
+    "name": "soin",
+    "prompt": "Portrait 4:5 candid professional beauty editorial photograph. Adult woman reclining on a cream treatment bed receiving gentle facial massage from a beauty therapist, only therapist's two anatomically correct hands and cream linen sleeves visible, three-quarter side angle, client's eyes closed, natural skin pores and fine lines, hair wrapped in soft ivory towel. Quiet daylight, restrained warm oak background, believable treatment room. Not stock glamour, no medical equipment.",
+    "path": "C:\\Users\\jerom\\.codex\\generated_images\\01a0aac0-26a2-7170-ba9e-633fe957fe96\\exec-1ea15f82-cc91-402d-8a3b-43c4ca1c1f4b.png"
+  },
+  {
+    "name": "cafe",
+    "prompt": "Landscape 5:4 candid editorial photograph in a small elegant French cafe. Two adult women in casual cream and muted olive clothes sit across a small travertine table chatting naturally; one ceramic cappuccino and one tea, small pastry plate. Mid-wide candid frame, visible authentic facial texture, relaxed expressions, natural hands resting simply, oak chairs, cream plaster walls, window daylight. No posing toward camera, no text.",
+    "path": "C:\\Users\\jerom\\.codex\\generated_images\\01a0aac0-26a2-7170-ba9e-633fe957fe96\\exec-ea87406f-ca88-4057-a5ec-9515cb48f696.png"
+  },
+  {
+    "name": "enfants",
+    "prompt": "Landscape 5:4 interior editorial photograph of a modest, carefully arranged children's play corner adjoining a warm French wellness cafe. Eye level low angle, a small oak play kitchen along one wall, cream floor cushion, wicker book basket, child-size stool, soft sage rug, plaster wall and daylight. Realistic scale, gently lived-in, no arches, no teddy bears, no people.",
+    "path": "C:\\Users\\jerom\\.codex\\generated_images\\01a0aac0-26a2-7170-ba9e-633fe957fe96\\exec-313b9762-5c50-4c41-b4c7-cfb99cc77c9d.png"
+  }
+]

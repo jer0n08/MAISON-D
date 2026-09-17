@@ -15,7 +15,7 @@ export function PrestationsList() {
   const offers = prestationsData.filter((service) => service.category === "offre du moment");
 
   return (
-    <section className="container-regular py-14 md:py-20" aria-labelledby="carte-soins-title">
+    <section className="container-regular py-10 md:py-12" aria-labelledby="carte-soins-title">
       <div className="mx-auto max-w-3xl text-center">
         <h2 id="carte-soins-title" className="text-4xl text-foreground md:text-5xl">La carte des soins</h2>
         <p className="mt-4 text-base leading-7 text-primary-dark">
@@ -23,9 +23,9 @@ export function PrestationsList() {
         </p>
       </div>
 
-      <div className="mt-10 space-y-4 md:mt-12">
+      <div className="mt-7 space-y-4">
         {offers.map((offer) => (
-          <article key={offer.id} className="rounded-none border border-line bg-surface p-6 md:p-8">
+          <article key={offer.id} className="rounded-xl border border-line bg-surface p-6 md:p-8">
             <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
               <h3 className="text-xl leading-tight text-balance text-foreground md:text-2xl">
                 {offer.id === "offre-duo-beauty" ? "Duo Beauty" : offer.title}
@@ -50,8 +50,8 @@ export function PrestationsList() {
           if (services.length === 0) return null;
 
           return (
-            <details key={category.key} open={index === 0} className="group rounded-none border border-line bg-surface">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-none p-5 transition-colors hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground md:p-7 [&::-webkit-details-marker]:hidden">
+            <details key={category.key} open={index === 0} className="group rounded-xl border border-line bg-surface">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-xl p-5 transition-colors hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground md:p-7 [&::-webkit-details-marker]:hidden">
                 <div>
                   <h3 className="text-xl leading-tight text-balance text-foreground md:text-2xl">{category.label}</h3>
                   <p className="mt-1.5 text-sm leading-6 text-primary-dark">

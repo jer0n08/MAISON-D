@@ -40,13 +40,13 @@ export default function MentionsLegalesPage() {
   return (
     <>
       <Navbar />
-      <main className="container-regular py-20">
-        <header className="max-w-4xl">
+      <main className="inner-page legal-page container-regular py-10 md:py-14">
+        <header className="mx-auto max-w-4xl text-center">
           <h1 className="text-4xl text-[#2f241b] md:text-5xl">Mentions légales</h1>
         </header>
 
-        <section className="mt-12 max-w-4xl space-y-10 text-[#584a41]">
-          <article className="space-y-3">
+        <section className="mx-auto mt-10 max-w-4xl space-y-5 text-[#584a41]">
+          <article className="space-y-3 rounded-xl border border-line bg-surface p-6 md:p-8">
             <h2 className="text-2xl text-[#2f241b] md:text-3xl">Éditeur du site</h2>
             <p className="leading-7">Le présent site est édité par :</p>
             <p className="leading-7"><strong>Maison D</strong></p>
@@ -59,7 +59,7 @@ export default function MentionsLegalesPage() {
             <p className="leading-7">Directeur de la publication : Maison D</p>
           </article>
 
-          <article className="space-y-3">
+          <article className="space-y-3 rounded-xl border border-line bg-surface p-6 md:p-8">
             <h2 className="text-2xl text-[#2f241b] md:text-3xl">Hébergement</h2>
             <p className="leading-7">Le site est hébergé par :</p>
             <p className="leading-7">
@@ -72,7 +72,7 @@ export default function MentionsLegalesPage() {
             <p className="leading-7">Création du site : JN+DEV STUDIO</p>
           </article>
 
-          <article className="space-y-3">
+          <article className="space-y-3 rounded-xl border border-line bg-surface p-6 md:p-8">
             <h2 className="text-2xl text-[#2f241b] md:text-3xl">Activité</h2>
             <p className="leading-7">
               Maison D propose des prestations dans le domaine de la beauté, notamment des soins esthétiques,
@@ -84,7 +84,7 @@ export default function MentionsLegalesPage() {
             </p>
           </article>
 
-          <article className="space-y-3">
+          <article className="space-y-3 rounded-xl border border-line bg-surface p-6 md:p-8">
             <h2 className="text-2xl text-[#2f241b] md:text-3xl">Propriété intellectuelle</h2>
             <p className="leading-7">
               L&apos;ensemble des contenus présents sur le site (textes, images, graphismes, logo, éléments visuels,
@@ -94,7 +94,7 @@ export default function MentionsLegalesPage() {
             </p>
           </article>
 
-          <article className="space-y-3">
+          <article className="space-y-3 rounded-xl border border-line bg-surface p-6 md:p-8">
             <h2 className="text-2xl text-[#2f241b] md:text-3xl">Limitation de responsabilité</h2>
             <p className="leading-7">
               Maison D s&apos;efforce de fournir sur ce site des informations aussi précises que possible. Toutefois,
@@ -104,7 +104,7 @@ export default function MentionsLegalesPage() {
             </p>
           </article>
 
-          <article className="space-y-3">
+          <article className="space-y-3 rounded-xl border border-line bg-surface p-6 md:p-8">
             <h2 className="text-2xl text-[#2f241b] md:text-3xl">Données personnelles</h2>
             <p className="leading-7">
               Les informations éventuellement collectées via le site sont traitées dans le respect de la
@@ -130,7 +130,7 @@ export default function MentionsLegalesPage() {
             </p>
           </article>
 
-          <article className="space-y-3">
+          <article className="space-y-3 rounded-xl border border-line bg-surface p-6 md:p-8">
             <h2 className="text-2xl text-[#2f241b] md:text-3xl">Cookies</h2>
             <p className="leading-7">
               Le site Maison D n&apos;utilise pas de cookies à des fins publicitaires ou de suivi marketing.
@@ -143,13 +143,13 @@ export default function MentionsLegalesPage() {
             </p>
           </article>
 
-          <article className="space-y-3">
+          <article className="space-y-3 rounded-xl border border-line bg-surface p-6 md:p-8">
             <h2 className="text-2xl text-[#2f241b] md:text-3xl">Contact</h2>
             <p className="leading-7">Email : contact@maisond-institut.fr</p>
             <p className="leading-7">Téléphone : 06 70 15 25 69</p>
           </article>
 
-          <article className="space-y-3">
+          <article className="space-y-3 rounded-xl border border-line bg-surface p-6 md:p-8">
             <h2 className="text-2xl text-[#2f241b] md:text-3xl">Liens externes</h2>
             <p className="leading-7">
               Le site peut contenir des liens vers des sites tiers. Maison D ne peut être tenue responsable du
@@ -157,7 +157,7 @@ export default function MentionsLegalesPage() {
             </p>
           </article>
 
-          <article className="space-y-3">
+          <article className="space-y-3 rounded-xl border border-line bg-surface p-6 md:p-8">
             <h2 className="text-2xl text-[#2f241b] md:text-3xl">Droit applicable</h2>
             <p className="leading-7">Les présentes mentions légales sont régies par le droit français.</p>
             <p className="leading-7">

@@ -45,7 +45,7 @@ export function Footer() {
             <p className="flex items-center gap-2">
               <MapPin className="size-5 shrink-0 text-primary-dark" aria-hidden="true" />
               <a
-                href="https://www.google.com/maps/search/?api=1&query=6+place+de+l%27abb%C3%A9+de+Porcaro,+Saint-Germain-en-Laye,+78100"
+                href="https://share.google/1uyQrkA343bRGdB16"
                 target="_blank"
                 rel="noreferrer"
                 className="transition hover:text-primary-dark hover:underline"

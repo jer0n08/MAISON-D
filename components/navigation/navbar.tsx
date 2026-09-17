@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { ArrowUpRight, ChevronRight, Menu, Phone, X } from "lucide-react";
 
 import { ServicesDropdown } from "@/components/navigation/services-dropdown";
-import { PLANITY_URL, SERVICE_CATEGORIES } from "@/data/service-categories";
+import { SERVICE_CATEGORIES } from "@/data/service-categories";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -49,18 +49,19 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-[80] w-full border-b border-line bg-surface">
-      <nav ref={navRef} aria-label="Navigation principale" className="container-regular relative flex h-16 items-center justify-between gap-4 text-foreground lg:grid lg:h-20 lg:grid-cols-[1fr_auto_1fr]">
-        <Link href="/" aria-label="Maison D. — Accueil" className="shrink-0 rounded-none lg:col-start-2 lg:row-start-1 lg:justify-self-center focus-visible:outline-2 focus-visible:outline-offset-4">
+      <nav ref={navRef} aria-label="Navigation principale" className="container-regular relative flex h-16 items-center justify-between gap-4 text-foreground lg:flex lg:h-20">
+        <Link href="/" aria-label="Maison D. — Accueil" className="shrink-0 rounded-none  focus-visible:outline-2 focus-visible:outline-offset-4">
           <Image src="/images/brand/maison-d.svg" alt="Maison D." width={196} height={68} priority className="h-auto w-[148px] sm:w-40 lg:w-44" />
         </Link>
-        <ul className="col-start-1 row-start-1 hidden items-center gap-7 lg:flex">
+        <ul className="col-start-1 row-start-1 hidden items-center gap-5 lg:flex">
           <li><Link href="/" aria-current={isHome ? "page" : undefined} className={`${navClass} ${isHome ? "border-foreground text-foreground" : "border-transparent text-foreground/75 hover:border-primary"}`}>Accueil</Link></li>
           <li><ServicesDropdown key={pathname} /></li>
+          <li><Link href="/a-propos" aria-current={pathname === "/a-propos" ? "page" : undefined} className={`${navClass} ${pathname === "/a-propos" ? "border-foreground text-foreground" : "border-transparent text-foreground/75 hover:border-primary"}`}>À propos</Link></li>
         </ul>
         <div className="col-start-3 row-start-1 hidden items-center justify-end gap-6 lg:flex">
           <Link href="/contact" aria-current={pathname === "/contact" ? "page" : undefined} className={`${navClass} hidden lg:inline-flex ${pathname === "/contact" ? "border-foreground" : "border-transparent text-foreground/75 hover:border-primary"}`}>Contact</Link>
-          <a href={PLANITY_URL} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-1 rounded-none text-xs text-foreground underline underline-offset-4 transition-colors hover:text-primary-dark focus-visible:outline-2 focus-visible:outline-offset-4 sm:gap-2 sm:text-sm">
-            Réserver <ArrowUpRight aria-hidden="true" className="hidden size-4 sm:block" />
+          <a href="/reservation"   className="reference-button">
+            Prendre rendez-vous <ArrowUpRight aria-hidden="true" className="hidden size-4 sm:block" />
           </a>
         </div>
         <button type="button" aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} popoverTarget="mobile-navigation" onClick={alignMenu} className="ml-auto inline-flex size-11 shrink-0 items-center justify-end rounded-none text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 lg:hidden">
@@ -80,10 +81,12 @@ export function Navbar() {
               <li><Link href="/prestations" onClick={closeMenu} className="mt-2 flex min-h-11 items-center px-3 text-sm underline underline-offset-4">Toutes les prestations et tarifs</Link></li>
             </ul>
           </details>
+          <Link href="/a-propos" onClick={closeMenu} aria-current={pathname === "/a-propos" ? "page" : undefined} className="flex min-h-14 items-center border-b border-line text-xl aria-[current=page]:text-primary-dark aria-[current=page]:underline aria-[current=page]:underline-offset-8">À propos</Link>
+          <Link href="/#avis" onClick={closeMenu} className="flex min-h-14 items-center border-b border-line text-xl">Vos avis</Link>
           <Link href="/contact" onClick={closeMenu} className="flex min-h-16 items-center text-xl">Contact</Link>
         </nav>
         <div className="container-regular bg-surface pt-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
-          <a href={PLANITY_URL} target="_blank" rel="noreferrer" onClick={closeMenu} className={`${bookingClass} w-full`}>Prendre rendez-vous <ArrowUpRight aria-hidden="true" className="size-4" /></a>
+          <a href="/reservation"   onClick={closeMenu} className={`${bookingClass} w-full`}>Prendre rendez-vous <ArrowUpRight aria-hidden="true" className="size-4" /></a>
           <a href="tel:+33670152569" className="mt-2 flex min-h-11 items-center justify-center gap-2 text-sm"><Phone aria-hidden="true" className="size-4" />06 70 15 25 69</a>
         </div>
       </div>

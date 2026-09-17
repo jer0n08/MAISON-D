@@ -1,32 +1,11 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export function CtaBand() {
-  return (
-    <section id="contact" className="relative min-h-[180px] overflow-hidden">
-      <Image
-        src="/images/home/massage-bg.png"
-        alt="Soin et relaxation"
-        fill
-        sizes="100vw"
-        className="object-cover object-[50%_70%]"
-      />
-      <div className="absolute inset-0 bg-black/35" />
-
-      <div className="container-regular relative z-10 flex min-h-[400px] flex-col items-center justify-center py-8 text-center text-white">
-        <h2 className="text-3xl leading-tight text-balance md:text-4xl">Offrez-vous un moment d&apos;exception</h2>
-        <p className="mt-2 text-base text-white/85 md:text-[1.05rem]">
-          Maison D. vous accueille pour une parenthèse bien-être, où chaque soin est pensé pour révéler votre beauté
-          naturelle, apaiser le corps et offrir un véritable moment de lâcher-prise.
-        </p>
-        <a
-          href="https://www.planity.com/maison-d-78100-saint-germain-en-laye-dsr"
-          target="_blank"
-          rel="noreferrer"
-          className="mt-4 rounded-none border border-white/80 px-5 py-2 text-base transition hover:bg-white/15 md:text-[1.05rem]"
-        >
-          Prendre rendez-vous
-        </a>
-      </div>
-    </section>
-  );
+  return <section className="border-y border-line/60 bg-[#efe2d6]">
+    <div className="container-regular flex flex-col items-center gap-6 py-9 text-center md:flex-row md:justify-between md:text-left">
+      <div><h2 className="text-3xl">L’art de prendre soin de soi</h2><p className="mt-3 text-sm leading-7">Votre prochain rendez-vous chez Maison D., à Saint-Germain-en-Laye.</p></div>
+      <Link href="/reservation" className="reference-button shrink-0">Prendre rendez-vous <ArrowRight aria-hidden="true" className="size-4" /></Link>
+    </div>
+  </section>;
 }

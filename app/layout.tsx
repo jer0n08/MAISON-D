@@ -37,11 +37,11 @@ function getMetadataBase() {
 export const metadata: Metadata = {
   metadataBase: getMetadataBase(),
   title: {
-    default: "Maison D. | Institut de beauté et onglerie",
+    default: "Maison D. | Beauté, Coffee Shop & Kid Area",
     template: "%s | Maison D.",
   },
   description:
-    "Maison D. est un institut de beauté et onglerie dédié à la mise en beauté des mains, des ongles et du visage avec une approche soignée et élégante.",
+    "À Saint-Germain-en-Laye, Maison D. réunit un institut de beauté et bien-être, un coffee shop et une kid area. Découvrez les soins et réservez votre rendez-vous.",
   keywords: [
     "Maison D.",
     "institut de beauté",
@@ -60,9 +60,9 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/",
     siteName: "Maison D.",
-    title: "Maison D. | Institut de beauté et onglerie",
+    title: "Maison D. | Beauté, Coffee Shop & Kid Area",
     description:
-      "Découvrez l'univers Maison D. : onglerie, manucure et soins beauté dans une ambiance raffinée.",
+      "Soins de beauté et bien-être, coffee shop et espace enfants : découvrez Maison D. à Saint-Germain-en-Laye.",
     images: [
       {
         url: "/og/maison-d-og.png",
@@ -74,9 +74,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maison D. | Institut de beauté et onglerie",
+    title: "Maison D. | Beauté, Coffee Shop & Kid Area",
     description:
-      "Maison D. propose des prestations d'onglerie et de beauté pour sublimer votre style avec précision.",
+      "Un soin, un café, du temps pour vous. Découvrez l’institut, le coffee shop et la kid area Maison D. à Saint-Germain-en-Laye.",
     images: ["/og/maison-d-og.png"],
   },
   robots: {
